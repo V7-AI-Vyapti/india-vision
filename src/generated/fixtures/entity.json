@@ -1,0 +1,151 @@
+[
+    {
+        "entity_name": "organisation",
+        "description": "India Vision organisation",
+        "fields": [
+            {
+                "field_name": "organisation_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "status",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "organisation_type",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "legal_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "is_authorised_to_train",
+                "field_data_type": "Boolean",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "state",
+        "description": "Geography state",
+        "fields": [
+            {
+                "field_name": "state_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "state_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "is_active",
+                "field_data_type": "Boolean",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "division",
+        "description": "Geography division",
+        "fields": [
+            {
+                "field_name": "division_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "division_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "state_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "state",
+                    "join_column": "state_id"
+                }
+            },
+            {
+                "field_name": "is_active",
+                "field_data_type": "Boolean",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "district",
+        "description": "Geography district",
+        "fields": [
+            {
+                "field_name": "district_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "district_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "division_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "division",
+                    "join_column": "division_id"
+                }
+            },
+            {
+                "field_name": "is_active",
+                "field_data_type": "Boolean",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "taluka",
+        "description": "Geography taluka",
+        "fields": [
+            {
+                "field_name": "taluka_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "taluka_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "district_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "district",
+                    "join_column": "district_id"
+                }
+            },
+            {
+                "field_name": "is_active",
+                "field_data_type": "Boolean",
+                "attributes": {}
+            }
+        ]
+    }
+]
