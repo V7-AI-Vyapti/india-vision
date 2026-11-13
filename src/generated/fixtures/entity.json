@@ -1,0 +1,1579 @@
+[
+    {
+        "entity_name": "organisation",
+        "description": "India Vision organisation",
+        "fields": [
+            {
+                "field_name": "organisation_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "status",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "organisation_type",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "legal_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "is_authorised_to_train",
+                "field_data_type": "Boolean",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "state",
+        "description": "Geography state",
+        "fields": [
+            {
+                "field_name": "state_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "state_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "is_active",
+                "field_data_type": "Boolean",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "division",
+        "description": "Geography division",
+        "fields": [
+            {
+                "field_name": "division_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "division_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "state_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "state",
+                    "join_column": "state_id"
+                }
+            },
+            {
+                "field_name": "is_active",
+                "field_data_type": "Boolean",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "district",
+        "description": "Geography district",
+        "fields": [
+            {
+                "field_name": "district_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "district_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "division_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "division",
+                    "join_column": "division_id"
+                }
+            },
+            {
+                "field_name": "is_active",
+                "field_data_type": "Boolean",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "taluka",
+        "description": "Geography taluka",
+        "fields": [
+            {
+                "field_name": "taluka_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "taluka_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "district_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "district",
+                    "join_column": "district_id"
+                }
+            },
+            {
+                "field_name": "is_active",
+                "field_data_type": "Boolean",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "job_role",
+        "description": "NSQF aligned job role / qualification pack",
+        "fields": [
+            {
+                "field_name": "job_role_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "job_role_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "nsqf_level",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "sector",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "awarding_body",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "notional_hours",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "credits",
+                "field_data_type": "Decimal",
+                "attributes": {}
+            },
+            {
+                "field_name": "qp_nos_code",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "valid_till",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "curriculum",
+        "description": "Curriculum / syllabus for a job role",
+        "fields": [
+            {
+                "field_name": "curriculum_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "title",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "duration_days",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "total_hours",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "job_role_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "job_role",
+                    "join_column": "job_role_id"
+                }
+            }
+        ]
+    },
+    {
+        "entity_name": "training_assignment",
+        "description": "Training assignment awarded to India Vision",
+        "fields": [
+            {
+                "field_name": "training_assignment_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "assignment_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "no_of_trainees",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "start_date",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "end_date",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "batch_min_size",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "batch_max_size",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "rpl_guidelines",
+                "field_data_type": "Text",
+                "attributes": {}
+            },
+            {
+                "field_name": "status",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "client_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "organisation",
+                    "join_column": "client_id"
+                }
+            },
+            {
+                "field_name": "welfare_board_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "organisation",
+                    "join_column": "welfare_board_id"
+                }
+            },
+            {
+                "field_name": "assessment_agency_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "organisation",
+                    "join_column": "assessment_agency_id"
+                }
+            },
+            {
+                "field_name": "state_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "state",
+                    "join_column": "state_id"
+                }
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "loi",
+        "description": "Letter of Intent received from the client",
+        "fields": [
+            {
+                "field_name": "loi_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "loi_date",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "source",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "poc_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "poc_designation",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "poc_mobile",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "poc_email",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "file_url",
+                "field_data_type": "Text",
+                "attributes": {}
+            },
+            {
+                "field_name": "training_assignment_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "training_assignment",
+                    "join_column": "training_assignment_id"
+                }
+            },
+            {
+                "field_name": "district_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "district",
+                    "join_column": "district_id"
+                }
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "assignment_target",
+        "description": "District / trade-wise target for an assignment",
+        "fields": [
+            {
+                "field_name": "assignment_target_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "target_count",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "job_role_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "job_role",
+                    "join_column": "job_role_id"
+                }
+            },
+            {
+                "field_name": "district_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "district",
+                    "join_column": "district_id"
+                }
+            },
+            {
+                "field_name": "training_assignment_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "training_assignment",
+                    "join_column": "training_assignment_id"
+                }
+            }
+        ]
+    },
+    {
+        "entity_name": "staff",
+        "description": "India Vision staff member",
+        "fields": [
+            {
+                "field_name": "staff_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "base_role",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "email",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "mobile",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "full_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "home_district_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "district",
+                    "join_column": "home_district_id"
+                }
+            }
+        ]
+    },
+    {
+        "entity_name": "team_member",
+        "description": "Staff assigned to a training assignment",
+        "fields": [
+            {
+                "field_name": "team_member_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "role_in_project",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "reports_to_team_member_id",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "staff_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "staff",
+                    "join_column": "staff_id"
+                }
+            },
+            {
+                "field_name": "training_assignment_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "training_assignment",
+                    "join_column": "training_assignment_id"
+                }
+            }
+        ]
+    },
+    {
+        "entity_name": "trainer",
+        "description": "Trainer compliance record",
+        "fields": [
+            {
+                "field_name": "trainer_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "aadhaar",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "pan",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "sidh_id",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "tot_cert_no",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "tot_valid_till",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "experience_years",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "is_deployable",
+                "field_data_type": "Boolean",
+                "attributes": {}
+            },
+            {
+                "field_name": "feedback_rating",
+                "field_data_type": "Decimal",
+                "attributes": {}
+            },
+            {
+                "field_name": "staff_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "staff",
+                    "join_column": "staff_id"
+                }
+            },
+            {
+                "field_name": "primary_job_role_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "job_role",
+                    "join_column": "primary_job_role_id"
+                }
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "trainer_document",
+        "description": "A document attached to a trainer",
+        "fields": [
+            {
+                "field_name": "trainer_document_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "doc_type",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "file_url",
+                "field_data_type": "Text",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "trainer_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "trainer",
+                    "join_column": "trainer_id"
+                }
+            }
+        ]
+    },
+    {
+        "entity_name": "training_centre",
+        "description": "Training centre / camp",
+        "fields": [
+            {
+                "field_name": "training_centre_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "centre_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "address",
+                "field_data_type": "Text",
+                "attributes": {}
+            },
+            {
+                "field_name": "gps_lat",
+                "field_data_type": "Decimal",
+                "attributes": {}
+            },
+            {
+                "field_name": "gps_long",
+                "field_data_type": "Decimal",
+                "attributes": {}
+            },
+            {
+                "field_name": "centre_type",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "status",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "district_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "district",
+                    "join_column": "district_id"
+                }
+            },
+            {
+                "field_name": "training_assignment_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "training_assignment",
+                    "join_column": "training_assignment_id"
+                }
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "training_centre_document",
+        "description": "A document in the training centre approval dossier",
+        "fields": [
+            {
+                "field_name": "training_centre_document_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "doc_type",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "file_url",
+                "field_data_type": "Text",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "training_centre_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "training_centre",
+                    "join_column": "training_centre_id"
+                }
+            }
+        ]
+    },
+    {
+        "entity_name": "training_centre_checklist",
+        "description": "Infrastructure / safety checklist item for a centre",
+        "fields": [
+            {
+                "field_name": "training_centre_checklist_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "item_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "training_centre_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "training_centre",
+                    "join_column": "training_centre_id"
+                }
+            },
+            {
+                "field_name": "verified",
+                "field_data_type": "Boolean",
+                "attributes": {}
+            },
+            {
+                "field_name": "is_available",
+                "field_data_type": "Boolean",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "trainee",
+        "description": "Mobilised worker / trainee",
+        "fields": [
+            {
+                "field_name": "trainee_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "full_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "father_name",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "dob",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "gender",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "aadhaar",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "mobile",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "address",
+                "field_data_type": "Text",
+                "attributes": {}
+            },
+            {
+                "field_name": "bocw_reg_no",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "bank_account",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "ifsc",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "experience_years",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "source",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "eligibility_status",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "photo_url",
+                "field_data_type": "Text",
+                "attributes": {}
+            },
+            {
+                "field_name": "training_assignment_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "training_assignment",
+                    "join_column": "training_assignment_id"
+                }
+            },
+            {
+                "field_name": "district_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "district",
+                    "join_column": "district_id"
+                }
+            },
+            {
+                "field_name": "proposed_job_role_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "job_role",
+                    "join_column": "proposed_job_role_id"
+                }
+            },
+            {
+                "field_name": "mobiliser_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "staff",
+                    "join_column": "mobiliser_id"
+                }
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "trainee_document",
+        "description": "A document attached to a trainee",
+        "fields": [
+            {
+                "field_name": "trainee_document_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "doc_type",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "file_url",
+                "field_data_type": "Text",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "trainee_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "trainee",
+                    "join_column": "trainee_id"
+                }
+            }
+        ]
+    },
+    {
+        "entity_name": "pre_screening",
+        "description": "Pre-training trade / competency screening record",
+        "fields": [
+            {
+                "field_name": "pre_screening_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "competencies_demonstrated",
+                "field_data_type": "Text",
+                "attributes": {}
+            },
+            {
+                "field_name": "competencies_gap",
+                "field_data_type": "Text",
+                "attributes": {}
+            },
+            {
+                "field_name": "outcome",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "screened_on",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "trainee_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "trainee",
+                    "join_column": "trainee_id"
+                }
+            },
+            {
+                "field_name": "job_role_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "job_role",
+                    "join_column": "job_role_id"
+                }
+            },
+            {
+                "field_name": "screened_by_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "staff",
+                    "join_column": "screened_by_id"
+                }
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "batch",
+        "description": "A single job-role batch",
+        "fields": [
+            {
+                "field_name": "batch_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "batch_code",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "start_date",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "end_date",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "assessment_date",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "status",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "training_assignment_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "training_assignment",
+                    "join_column": "training_assignment_id"
+                }
+            },
+            {
+                "field_name": "job_role_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "job_role",
+                    "join_column": "job_role_id"
+                }
+            },
+            {
+                "field_name": "training_centre_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "training_centre",
+                    "join_column": "training_centre_id"
+                }
+            },
+            {
+                "field_name": "trainer_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "trainer",
+                    "join_column": "trainer_id"
+                }
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "batch_trainee",
+        "description": "Join between a batch and a trainee",
+        "fields": [
+            {
+                "field_name": "batch_trainee_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "attendance_pct",
+                "field_data_type": "Decimal",
+                "attributes": {}
+            },
+            {
+                "field_name": "trainee_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "trainee",
+                    "join_column": "trainee_id"
+                }
+            },
+            {
+                "field_name": "batch_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "batch",
+                    "join_column": "batch_id"
+                }
+            }
+        ]
+    },
+    {
+        "entity_name": "batch_approval",
+        "description": "Batch submission and approval record",
+        "fields": [
+            {
+                "field_name": "batch_approval_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "submitted_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "approved_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "decision",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "conditions",
+                "field_data_type": "Text",
+                "attributes": {}
+            },
+            {
+                "field_name": "batch_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "batch",
+                    "join_column": "batch_id"
+                }
+            },
+            {
+                "field_name": "submitted_by_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "staff",
+                    "join_column": "submitted_by_id"
+                }
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "training_day",
+        "description": "Daily training record for a batch",
+        "fields": [
+            {
+                "field_name": "training_day_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "training_date",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "topic",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "planned_hours",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "actual_hours",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "present_count",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "remarks",
+                "field_data_type": "Text",
+                "attributes": {}
+            },
+            {
+                "field_name": "batch_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "batch",
+                    "join_column": "batch_id"
+                }
+            },
+            {
+                "field_name": "trainer_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "trainer",
+                    "join_column": "trainer_id"
+                }
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "attendance",
+        "description": "Per-trainee attendance for a training day",
+        "fields": [
+            {
+                "field_name": "attendance_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "method",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "status",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "photo_url",
+                "field_data_type": "Text",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "trainee_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "trainee",
+                    "join_column": "trainee_id"
+                }
+            },
+            {
+                "field_name": "training_day_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "training_day",
+                    "join_column": "training_day_id"
+                }
+            }
+        ]
+    },
+    {
+        "entity_name": "assessment",
+        "description": "Assessment scheduled for a batch",
+        "fields": [
+            {
+                "field_name": "assessment_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "status",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "method",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "assessment_date",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "assessment_agency_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "organisation",
+                    "join_column": "assessment_agency_id"
+                }
+            },
+            {
+                "field_name": "batch_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "batch",
+                    "join_column": "batch_id"
+                }
+            }
+        ]
+    },
+    {
+        "entity_name": "assessment_result",
+        "description": "Per-trainee assessment result",
+        "fields": [
+            {
+                "field_name": "assessment_result_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "cert_status",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "result",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "score",
+                "field_data_type": "Decimal",
+                "attributes": {}
+            },
+            {
+                "field_name": "trainee_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "trainee",
+                    "join_column": "trainee_id"
+                }
+            },
+            {
+                "field_name": "assessment_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "assessment",
+                    "join_column": "assessment_id"
+                }
+            }
+        ]
+    },
+    {
+        "entity_name": "certificate",
+        "description": "Certificate issued to a trainee",
+        "fields": [
+            {
+                "field_name": "certificate_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "certificate_no",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "issued_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "qr_url",
+                "field_data_type": "Text",
+                "attributes": {}
+            },
+            {
+                "field_name": "abc_uploaded",
+                "field_data_type": "Boolean",
+                "attributes": {}
+            },
+            {
+                "field_name": "trainee_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "trainee",
+                    "join_column": "trainee_id"
+                }
+            },
+            {
+                "field_name": "assessment_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "assessment",
+                    "join_column": "assessment_id"
+                }
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            }
+        ]
+    },
+    {
+        "entity_name": "wage_compensation",
+        "description": "Wage-loss compensation tracking for a trainee",
+        "fields": [
+            {
+                "field_name": "wage_compensation_id",
+                "field_data_type": "AutoPK",
+                "attributes": {}
+            },
+            {
+                "field_name": "days",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "amount",
+                "field_data_type": "Decimal",
+                "attributes": {}
+            },
+            {
+                "field_name": "status",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "dbt_reference",
+                "field_data_type": "CharacterString",
+                "attributes": {}
+            },
+            {
+                "field_name": "received",
+                "field_data_type": "Boolean",
+                "attributes": {}
+            },
+            {
+                "field_name": "trainee_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "trainee",
+                    "join_column": "trainee_id"
+                }
+            },
+            {
+                "field_name": "batch_id",
+                "field_data_type": "FK",
+                "attributes": {
+                    "target_entity": "batch",
+                    "join_column": "batch_id"
+                }
+            },
+            {
+                "field_name": "created_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            },
+            {
+                "field_name": "updated_at",
+                "field_data_type": "Integer",
+                "attributes": {}
+            }
+        ]
+    }
+]
