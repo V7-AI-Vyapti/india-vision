@@ -21,6 +21,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      packages: write
+
+
     outputs:
       image_tag: ${{ steps.vars.outputs.TAG }}
       repo_lower: ${{ steps.repo.outputs.REPO }}
@@ -73,7 +78,10 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-
+    
+    permissions:
+      contents: read
+      packages: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
